@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bird : MonoBehaviour
 {
     public Rigidbody Rb;
+    public GameObject Feathers;
     public float ReleaseTime = 0.5f;
     private bool _isPressed;
 
@@ -38,6 +39,11 @@ public class Bird : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GetComponent<TrailRenderer>().enabled = false;
+        if (!collision.collider.CompareTag("Ground"))
+        {
+            GameObject feathers = Instantiate(Feathers, transform.position, Quaternion.identity);
+            Destroy(feathers, 2);
+        }
     }
 
     IEnumerator Release()

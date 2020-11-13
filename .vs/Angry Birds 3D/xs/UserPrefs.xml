@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Bird.cs">
     <Files>
       <File FileName="Assets/Scripts/Bird.cs" Line="26" Column="31" />
-      <File FileName="Assets/Scripts/Slingshot.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/Slingshot.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +14,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ba1e7dca-73b2-4df1-85f7-1c74b7659410" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f0077ba3-4126-4668-b7d5-64337d274091" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
