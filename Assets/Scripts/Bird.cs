@@ -6,6 +6,10 @@ public class Bird : MonoBehaviour
     public Rigidbody Rb;
     public GameObject Feathers;
     public GameObject FeatherExplosion;
+    public AudioSource Slingshot;
+    public AudioSource SlingshotRelease;
+    public AudioSource Flying;
+    public AudioSource BirdCollision;
     public float ReleaseTime = 0.5f;
     private bool _isPressed;
     private bool _isFired;
@@ -32,6 +36,7 @@ public class Bird : MonoBehaviour
 
         _isPressed = true;
         Rb.isKinematic = true;
+        Slingshot.Play();
     }
 
     void OnMouseUp()
@@ -46,6 +51,8 @@ public class Bird : MonoBehaviour
 
         GetComponent<TrailRenderer>().enabled = true;
         _isFired = true;
+        SlingshotRelease.Play();
+        Flying.Play();
         StartCoroutine(Release());
     }
 
@@ -56,6 +63,11 @@ public class Bird : MonoBehaviour
         {
             GameObject feathers = Instantiate(Feathers, transform.position, Quaternion.identity);
             Destroy(feathers, 2);
+            if (!BirdCollision.isPlaying)
+            {
+                BirdCollision.Play();
+            }
+            GameManager.Instance.AddScore(Random.Range(5, 25) * 10, transform.position, Color.white);
         }
     }
 
@@ -71,6 +83,7 @@ public class Bird : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
 
+        GameManager.Instance.BirdDestroy.Play();
         Instantiate(FeatherExplosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Post-Processing
   - Ground
+  - Bird
+  - Pig
   layers:
   - Default
   - TransparentFX

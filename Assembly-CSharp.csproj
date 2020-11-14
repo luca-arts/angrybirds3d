@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/CFX_Demo_Translate.cs" />
+    <Compile Include="Assets/Scripts/FloatingText.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_New.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_DeleteAfterDelay.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/CFX_AutoStopLoopedEffect.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets/JMO Assets/WarFX/Scripts/CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_RandomDir.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Scripts/CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/Wood.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Scripts/WFX_LightFlicker.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_Wall.cs" />
@@ -75,8 +77,7 @@
     <Compile Include="Assets/JMO Assets/WarFX/Spawn System/CFX_SpawnSystem.cs" />
     <Compile Include="Assets/Scripts/Ice.cs" />
     <Compile Include="Assets/Scripts/MainCamera.cs" />
-    <Compile Include="Assets/Scripts/GameManager.cs" />
-    <Compile Include="Assets/Scripts/FloatingText.cs" />
+    <Compile Include="Assets/Scripts/StillBird.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/JMO Assets/WarFX/Shaders/WFX_S Multiply Soft.shader" />

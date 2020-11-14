@@ -10,12 +10,29 @@ public class GameManager : MonoBehaviour
     public GameObject FloatingText;
     public List<int> Score = new List<int>();
     public List<int> HighScore = new List<int>();
+    public AudioSource WoodDestruction;
+    public AudioSource IceDestruction;
+    public AudioSource PigDestroy;
+    public AudioSource BirdDestroy;
+    public AudioSource PigHit;
+    public AudioSource LevelCleared;
+
+    private bool _isLevelCleared;
 
     void Start()
     {
         if (Instance == null)
         {
             Instance = this;
+        }
+    }
+
+    void Update()
+    {
+        if (!_isLevelCleared && GameObject.FindGameObjectsWithTag("Pig").Length == 0)
+        {
+            _isLevelCleared = true;
+            LevelCleared.Play();
         }
     }
 
