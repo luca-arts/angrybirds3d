@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9061107091461771075}
   - component: {fileID: 363704813383891780}
   - component: {fileID: 5602933820642009203}
+  - component: {fileID: 4496899374117213941}
   m_Layer: 0
   m_Name: Wooden Block
   m_TagString: Untagged
@@ -112,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4496899374117213941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428645006852782802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb5cbe9ecdc946deabbdfcfb8510f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WoodShatter: {fileID: 8313402609560572699, guid: 07c412bc21bb1467dbba12d6c6bb696a, type: 3}

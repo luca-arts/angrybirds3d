@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 2393859571144043853}
   - component: {fileID: 1893393747154166390}
   - component: {fileID: -7814662578491550783}
+  - component: {fileID: -7550128794887904735}
   m_Layer: 0
   m_Name: Pig
   m_TagString: Untagged
@@ -229,6 +230,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.420525
   m_Center: {x: -0.017737389, y: -0.14665008, z: -0.07518935}
+--- !u!114 &-7550128794887904735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058896548978358263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0f8dd573d5c4f089215f0c51da14ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Smoke: {fileID: 683210327174122873, guid: e28ac3b131d1d4e378f1c1cec187084f, type: 3}
 --- !u!1 &3730633885232561078
 GameObject:
   m_ObjectHideFlags: 0

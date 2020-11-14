@@ -13,6 +13,9 @@ public class MainCamera : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, Math.Max(Bird.transform.position.z - 10, _startPosition.z));
+        if (Bird != null)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, Math.Max(Bird.transform.position.z - 10, _startPosition.z));
+        }
     }
 }

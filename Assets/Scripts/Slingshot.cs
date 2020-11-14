@@ -16,7 +16,7 @@ public class Slingshot : MonoBehaviour
     void Update()
     {
         Line.SetPosition(0, LeftSide.transform.position);
-        if (Bird.GetComponent<SpringJoint>() == null)
+        if (Bird == null || Bird.GetComponent<SpringJoint>() == null)
         {
             Line.SetPosition(1, Hook.transform.position);
             Line.SetPosition(2, Hook.transform.position);
