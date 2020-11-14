@@ -15,7 +15,8 @@ public class Wood : MonoBehaviour
 	private void Destroy()
 	{
 		GameObject shatter = Instantiate(WoodShatter, transform.position, Quaternion.identity);
-		Destroy(shatter, 2);
+        GameManager.Instance.AddScore(500, transform.position, Color.white);
+        Destroy(shatter, 2);
 		Destroy(gameObject);
 	}
 }

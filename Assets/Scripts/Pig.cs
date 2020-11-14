@@ -15,6 +15,7 @@ public class Pig : MonoBehaviour
     private void Destroy()
     {
         GameObject smoke = Instantiate(Smoke, transform.position, Quaternion.identity);
+        GameManager.Instance.AddScore(5000, transform.position, Color.green);
         Destroy(smoke, 3);
         Destroy(gameObject);
     }

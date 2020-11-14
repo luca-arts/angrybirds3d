@@ -15,6 +15,7 @@ public class Ice : MonoBehaviour
     private void Destroy()
     {
         GameObject shatter = Instantiate(IceShatter, transform.position, Quaternion.identity);
+        GameManager.Instance.AddScore(500, transform.position, Color.white);
         Destroy(shatter, 2);
         Destroy(gameObject);
     }
