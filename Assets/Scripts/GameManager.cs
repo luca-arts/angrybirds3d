@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -115,8 +116,22 @@ public class GameManager : MonoBehaviour
         }
         else if (RemainingBirds < 0)
         {
-            EndLevel(false);
+            if (FindObjectsOfType<Pig>().All(p => p.GetComponent<Rigidbody>().velocity.magnitude < 0.1f))
+            {
+                EndLevel(false);
+            }
+            else
+            {
+                StartCoroutine(CheckIfPigsStoppedMoving());
+            }
         }
+    }
+
+    IEnumerator CheckIfPigsStoppedMoving()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        FinishLevel();
     }
 
     IEnumerator AddFinalScores()
