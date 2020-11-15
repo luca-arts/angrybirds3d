@@ -1,16 +1,18 @@
 ﻿<Properties StartupConfiguration="{B2B5BE63-CFDC-CE98-AE31-62DA858924D9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RetryButton.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Bird.cs" Line="44" Column="46" />
-      <File FileName="Assets/Scripts/Slingshot.cs" />
+      <File FileName="Assets/Scripts/Bird.cs" Line="49" Column="28" />
+      <File FileName="Assets/Scripts/Slingshot.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Ice.cs" />
-      <File FileName="Assets/Scripts/Wood.cs" />
+      <File FileName="Assets/Scripts/Wood.cs" Line="5" Column="1" />
       <File FileName="Assets/Scripts/Pig.cs" />
       <File FileName="Assets/Scripts/MainCamera.cs" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="138" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="102" Column="1" />
       <File FileName="Assets/Scripts/FloatingText.cs" />
       <File FileName="Assets/Scripts/StillBird.cs" />
-      <File FileName="Assets/Scripts/RetryButton.cs" Line="11" Column="2" />
+      <File FileName="Assets/Scripts/RetryButton.cs" Line="8" Column="1" />
+      <File FileName="Assets/Scripts/NextButton.cs" Line="8" Column="62" />
+      <File FileName="Assets/Scripts/Stone.cs" Line="13" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,7 +24,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f5e67284-7d77-49fb-897a-9872523c154d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="708b2d6f-3475-4131-b3d2-b8a48faa24fc" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

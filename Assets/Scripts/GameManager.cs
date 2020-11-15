@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,12 +12,14 @@ public class GameManager : MonoBehaviour
     public GameObject SlingshotBird;
     public GameObject StillBird;
     public GameObject LevelWon;
+    public GameObject LevelLost;
     public Slingshot Slingshot;
+    public GameObject NewHighscore;
     public int RemainingBirds = 3;
     public bool IsLevelCleared;
     public bool IsLevelCompleted;
-    public List<int> Score = new List<int>();
-    public List<int> HighScore = new List<int>();
+    public bool ActiveTurn;
+    public int Score;
     public AudioSource WoodDestruction;
     public AudioSource IceDestruction;
     public AudioSource PigDestroy;
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        int level = SceneManager.GetActiveScene().buildIndex;
+        HighscoreText.text = GetHighscore(level).ToString();
         SetNewBird();
     }
 
@@ -43,6 +46,10 @@ public class GameManager : MonoBehaviour
         {
             IsLevelCleared = true;
             LevelCleared.Play();
+            if (!ActiveTurn)
+            {
+                FinishLevel();
+            }
         }
     }
 
@@ -54,15 +61,8 @@ public class GameManager : MonoBehaviour
         }
 
         int level = SceneManager.GetActiveScene().buildIndex;
-        if (Score.Count <= level)
-        {
-            Score.Add(amount);
-        }
-        else
-        {
-            Score[level] += amount;
-        }
-        ScoreText.text = Score[level].ToString();
+        Score += amount;
+        ScoreText.text = Score.ToString();
         GameObject floatingTextObj = Instantiate(FloatingText, position, Quaternion.identity);
         FloatingText floatingText = floatingTextObj.GetComponent<FloatingText>();
         floatingText.UpdateText(amount.ToString(), textColor);
@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void SetNewBird()
     {
+        ActiveTurn = false;
         RemainingBirds--;
         if (RemainingBirds >= 0)
         {
@@ -96,6 +97,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        FinishLevel();
+    }
+
+    private void FinishLevel()
+    {
         if (IsLevelCleared)
         {
             if (RemainingBirds >= 0)
@@ -138,15 +144,32 @@ public class GameManager : MonoBehaviour
             int level = SceneManager.GetActiveScene().buildIndex;
             LevelCompleted.Play();
             IsLevelCompleted = true;
+
+            int highscore = GetHighscore(level);
+            int score = Score;
+            if (score > highscore)
+            {
+                highscore = score;
+                PlayerPrefs.SetInt($"{level}-highscore", highscore);
+                PlayerPrefs.Save();
+                NewHighscore.SetActive(true);
+            }
+
             LevelWon.transform.Find("Level Text").GetComponent<Text>().text = $"1-{level + 1}";
-            LevelWon.transform.Find("Score Amount Text").GetComponent<Text>().text = Score[level].ToString();
-            HighscoreText.text = Score[level].ToString();
-            LevelWon.transform.Find("Highscore Amount Text").GetComponent<Text>().text = Score[level].ToString();
+            LevelWon.transform.Find("Score Amount Text").GetComponent<Text>().text = score.ToString();
+            HighscoreText.text = highscore.ToString();
+            LevelWon.transform.Find("Highscore Amount Text").GetComponent<Text>().text = highscore.ToString();
             LevelWon.SetActive(true);
         }
         else
         {
             LevelFailed.Play();
+            LevelLost.SetActive(true);
         }
+    }
+
+    private int GetHighscore(int level)
+    {
+        return PlayerPrefs.HasKey($"{level}-highscore") ? PlayerPrefs.GetInt($"{level}-highscore") : 0;
     }
 }

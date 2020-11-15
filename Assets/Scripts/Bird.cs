@@ -49,6 +49,8 @@ public class Bird : MonoBehaviour
         _isPressed = false;
         Rb.isKinematic = false;
 
+        GameManager.Instance.ActiveTurn = true;
+
         GetComponent<TrailRenderer>().enabled = true;
         _isFired = true;
         SlingshotRelease.Play();
