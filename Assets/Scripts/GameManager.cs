@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public Text ScoreText;
+    public Text HighscoreText;
     public GameObject FloatingText;
     public GameObject SlingshotBird;
     public GameObject StillBird;
+    public GameObject LevelWon;
     public Slingshot Slingshot;
     public int RemainingBirds = 3;
     public bool IsLevelCleared;
+    public bool IsLevelCompleted;
     public List<int> Score = new List<int>();
     public List<int> HighScore = new List<int>();
     public AudioSource WoodDestruction;
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
     public AudioSource PigHit;
     public AudioSource LevelCleared;
     public AudioSource LevelFailed;
+    public AudioSource LevelCompleted;
 
     void Start()
     {
@@ -44,6 +48,11 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int amount, Vector3 position, Color textColor)
     {
+        if (IsLevelCompleted)
+        {
+            return;
+        }
+
         int level = SceneManager.GetActiveScene().buildIndex;
         if (Score.Count <= level)
         {
@@ -87,13 +96,20 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (IsLevelCleared && RemainingBirds >= 0)
+        if (IsLevelCleared)
         {
-            StartCoroutine(AddFinalScores());
+            if (RemainingBirds >= 0)
+            {
+                StartCoroutine(AddFinalScores());
+            }
+            else
+            {
+                EndLevel(true);
+            }
         }
         else if (RemainingBirds < 0)
         {
-            LevelFailed.Play();
+            EndLevel(false);
         }
     }
 
@@ -108,6 +124,29 @@ public class GameManager : MonoBehaviour
         foreach (Bird bird in FindObjectsOfType<Bird>())
         {
             AddScore(10000, bird.transform.position, Color.red);
+        }
+
+        yield return new WaitForSeconds(1);
+
+        EndLevel(true);
+    }
+
+    private void EndLevel(bool wonLevel)
+    {
+        if (wonLevel)
+        {
+            int level = SceneManager.GetActiveScene().buildIndex;
+            LevelCompleted.Play();
+            IsLevelCompleted = true;
+            LevelWon.transform.Find("Level Text").GetComponent<Text>().text = $"1-{level + 1}";
+            LevelWon.transform.Find("Score Amount Text").GetComponent<Text>().text = Score[level].ToString();
+            HighscoreText.text = Score[level].ToString();
+            LevelWon.transform.Find("Highscore Amount Text").GetComponent<Text>().text = Score[level].ToString();
+            LevelWon.SetActive(true);
+        }
+        else
+        {
+            LevelFailed.Play();
         }
     }
 }
