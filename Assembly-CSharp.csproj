@@ -72,12 +72,12 @@
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/Wood.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Scripts/WFX_LightFlicker.cs" />
+    <Compile Include="Assets/Scripts/StillBird.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_Wall.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Scripts/WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Spawn System/CFX_SpawnSystem.cs" />
     <Compile Include="Assets/Scripts/Ice.cs" />
     <Compile Include="Assets/Scripts/MainCamera.cs" />
-    <Compile Include="Assets/Scripts/StillBird.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/JMO Assets/WarFX/Shaders/WFX_S Multiply Soft.shader" />

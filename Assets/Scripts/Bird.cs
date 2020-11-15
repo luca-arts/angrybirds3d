@@ -16,7 +16,7 @@ public class Bird : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_isPressed && !_isFired)
+        if (_isPressed && !_isFired && !GameManager.Instance.IsLevelCleared)
         {
             Vector3 mousePosition = Input.mousePosition;
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 6.5f));
@@ -29,7 +29,7 @@ public class Bird : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (_isFired)
+        if (_isFired || GameManager.Instance.IsLevelCleared)
         {
             return;
         }
@@ -41,7 +41,7 @@ public class Bird : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (_isFired)
+        if (_isFired || GameManager.Instance.IsLevelCleared)
         {
             return;
         }
@@ -83,6 +83,7 @@ public class Bird : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
 
+        GameManager.Instance.SetNewBird();
         GameManager.Instance.BirdDestroy.Play();
         Instantiate(FeatherExplosion, transform.position, Quaternion.identity);
         Destroy(gameObject);

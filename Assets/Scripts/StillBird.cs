@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class StillBird : MonoBehaviour
 {
+    public float WaitForSeconds;
+
     void Start()
     {
         StartCoroutine(StartAnimation());
@@ -10,7 +12,7 @@ public class StillBird : MonoBehaviour
 
     IEnumerator StartAnimation()
     {
-        yield return new WaitForSeconds(Random.Range(0.1f, 1f));
+        yield return new WaitForSeconds(WaitForSeconds);
 
         GetComponent<Animator>().enabled = true;
     }
