@@ -8,4 +8,9 @@ public class RetryButton : MonoBehaviour
         int level = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene($"Level {level + 1}");
     }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene($"Level 1");
+    }
 }

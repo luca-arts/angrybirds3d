@@ -11,6 +11,7 @@ public class Bird : MonoBehaviour
     public AudioSource Flying;
     public AudioSource BirdCollision;
     public float ReleaseTime = 0.5f;
+    public float DestructionTime = 5f;
     private bool _isPressed;
     private bool _isFired;
 
@@ -83,7 +84,7 @@ public class Bird : MonoBehaviour
 
     IEnumerator Explode()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(DestructionTime);
 
         GameManager.Instance.SetNewBird();
         GameManager.Instance.BirdDestroy.Play();

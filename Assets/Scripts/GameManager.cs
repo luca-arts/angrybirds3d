@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Slingshot Slingshot;
     public GameObject NewHighscore;
     public int RemainingBirds = 3;
+    public float BirdDestructionTime = 5f;
     public bool IsLevelCleared;
     public bool IsLevelCompleted;
     public bool ActiveTurn;
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
         if (RemainingBirds >= 0)
         {
             GameObject bird = Instantiate(SlingshotBird, new Vector3(Slingshot.transform.position.x - 0.08f, Slingshot.transform.position.y + 3.82f, Slingshot.transform.position.z - 0.29f), Quaternion.identity);
+            bird.GetComponent<Bird>().DestructionTime = BirdDestructionTime;
             Slingshot.Bird = bird;
             Camera.main.GetComponent<MainCamera>().Bird = bird;
 
@@ -129,7 +131,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator CheckIfPigsStoppedMoving()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
 
         FinishLevel();
     }
